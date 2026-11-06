@@ -8,6 +8,8 @@ export const appConfig = {
   sttForceError: readBool(import.meta.env.VITE_STT_FORCE_ERROR, false),
   sttProvider: ((import.meta.env.VITE_STT_PROVIDER as string)?.trim() || 'groq') as 'groq' | 'openai-realtime' | 'soniox',
   groqModel: (import.meta.env.VITE_GROQ_MODEL as string | undefined)?.trim() || 'whisper-large-v3',
+  /** STT language (ISO 639-1) for Groq `language` and Soniox `language_hints`. Default: de (fork) */
+  sttLanguage: (import.meta.env.VITE_STT_LANGUAGE as string | undefined)?.trim() || 'de',
   // Hub が dist/index.html 配信時に差し込むトークン（server/notification-hub/static.mjs）を優先し、
   // Vite dev server 経由ではビルド時の VITE_HUB_TOKEN を使う
   hubAuthToken:

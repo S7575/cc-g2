@@ -41,7 +41,7 @@ async function transcribeWavWithGroq(wavBytes: Uint8Array): Promise<SttResult> {
       audioBase64,
       mimeType: 'audio/wav',
       model: appConfig.groqModel,
-      language: 'ja',
+      language: appConfig.sttLanguage,
       response_format: 'verbose_json',
     }),
   })

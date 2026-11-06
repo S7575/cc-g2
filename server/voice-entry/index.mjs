@@ -336,14 +336,35 @@ function looksLikeFollowUp(text) {
     'retry',
     'continue',
     'resume',
+    // Deutsch
+    'mach weiter',
+    'weitermachen',
+    'fortsetzen',
+    'fortfahren',
+    'nochmal',
+    'noch mal',
+    'noch einmal',
+    'wiederholen',
+    'letzte sitzung',
+    'vorherige sitzung',
   ].some((keyword) => normalized.includes(normalizeForMatch(keyword)))
 }
 
 function prefersRecentWorkdir(text) {
   const normalized = normalizeForMatch(text)
-  return ['ここで', 'このディレクトリで', 'このリポジトリで', 'このフォルダで'].some((keyword) =>
-    normalized.includes(normalizeForMatch(keyword)),
-  )
+  return [
+    'ここで',
+    'このディレクトリで',
+    'このリポジトリで',
+    'このフォルダで',
+    // Deutsch
+    'in diesem ordner',
+    'in diesem verzeichnis',
+    'in diesem repo',
+    'in diesem projekt',
+    'im selben ordner',
+    'im gleichen ordner',
+  ].some((keyword) => normalized.includes(normalizeForMatch(keyword)))
 }
 
 function resolveDynamicWorkdir(text, candidates, lastSession) {

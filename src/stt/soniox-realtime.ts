@@ -1,4 +1,5 @@
 import type { SttResult } from './groq'
+import { appConfig } from '../config'
 import { log } from '../log'
 
 export type TranscriptCallback = (text: string, isFinal: boolean) => void
@@ -100,7 +101,7 @@ export class SonioxRealtimeSTT {
           audio_format: 'pcm_s16le',
           sample_rate: 16000,
           num_channels: 1,
-          language_hints: ['ja'],
+          language_hints: [appConfig.sttLanguage],
           enable_endpoint_detection: true,
         }))
         this.sessionReady = true
